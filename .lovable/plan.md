@@ -34,4 +34,4 @@ Entri "Can This Love Be Translated?" akan diisi lebih dulu dengan rating 9.95/10
 - Tabel `user_roles` terpisah (peran `admin` dan `editor`) + fungsi `has_role` untuk cek izin — akun pertama yang mendaftar jadi admin, akun kedua diberi peran editor dari halaman kelola akses.
 - Dua storage bucket publik: `posters` dan `trailers`.
 - Poster dan trailer yang kamu lampirkan diunggah sebagai aset CDN dan dipakai untuk baris seed.
-- Rute: `/` (beranda), `/title/$id` (detail), `/manage` (tambah/edit, terproteksi), `/auth` (login).
+- Rute: `/` (beranda), `/title/$id` (detail), `/manage` (tambah/edit, terproteksi), `/access` (kelola editor, admin saja), `/auth` (login).
