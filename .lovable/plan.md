@@ -30,7 +30,8 @@ Entri "Can This Love Be Translated?" akan diisi lebih dulu dengan rating 9.95/10
 - Proyek Lovable memakai React + TypeScript yang dikompilasi jadi HTML, CSS, dan JavaScript biasa di browser — hasil akhirnya tetap web standar. Kodenya ditulis sesederhana mungkin, tanpa library tambahan yang tidak perlu.
 
 - Lovable Cloud diaktifkan untuk database, autentikasi, dan penyimpanan file.
-- Tabel `titles` (judul, tahun, tipe, rating, genre array, sinopsis, catatan, status, favorit, poster_url, trailer_url, trailer_type) dengan RLS: publik boleh baca, hanya user terautentikasi (pemilik, lewat tabel `user_roles`) yang boleh tulis.
+- Tabel `titles` (judul, tahun, tipe, rating, genre array, sinopsis, catatan, status, favorit, poster_url, trailer_url, trailer_type) dengan RLS: publik boleh baca, hanya user dengan peran editor/admin yang boleh tulis.
+- Tabel `user_roles` terpisah (peran `admin` dan `editor`) + fungsi `has_role` untuk cek izin — akun pertama yang mendaftar jadi admin, akun kedua diberi peran editor dari halaman kelola akses.
 - Dua storage bucket publik: `posters` dan `trailers`.
 - Poster dan trailer yang kamu lampirkan diunggah sebagai aset CDN dan dipakai untuk baris seed.
 - Rute: `/` (beranda), `/title/$id` (detail), `/manage` (tambah/edit, terproteksi), `/auth` (login).
