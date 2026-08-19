@@ -5,7 +5,7 @@ import { SiteHeader } from "@/components/SiteHeader";
 import { TitleCard } from "@/components/TitleCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { fetchTitles, KIND_LABEL, STATUS_LABEL, ratingColor, type Title } from "@/lib/catalog";
+import { fetchTitles, kindLabel, statusLabel, ratingColor, type Title } from "@/lib/catalog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -75,7 +75,7 @@ function HomePage() {
                 variant={kind === option ? "default" : "secondary"}
                 onClick={() => setKind(option)}
               >
-                {option === "all" ? "Semua" : KIND_LABEL[option]}
+                {option === "all" ? "Semua" : kindLabel(option)}
               </Button>
             ))}
           </div>
@@ -97,9 +97,9 @@ function HomePage() {
 
         <Row title="Favorit" items={favorites} />
         <Row title="Rating Tertinggi" items={topRated} />
-        <Row title={STATUS_LABEL.watching} items={byStatus("watching")} />
-        <Row title={STATUS_LABEL.watched} items={byStatus("watched")} />
-        <Row title={STATUS_LABEL.watchlist} items={byStatus("watchlist")} />
+        <Row title={statusLabel("watching")} items={byStatus("watching")} />
+        <Row title={statusLabel("watched")} items={byStatus("watched")} />
+        <Row title={statusLabel("watchlist")} items={byStatus("watchlist")} />
       </main>
     </div>
   );
@@ -136,7 +136,7 @@ function Hero({ title }: { title: Title }) {
                 {Number(title.rating).toFixed(2)}/10
               </span>
             )}
-            <span>{KIND_LABEL[title.kind] ?? title.kind}</span>
+            <span>{kindLabel(title.kind)}</span>
             {title.year && <span>{title.year}</span>}
             {title.genres.slice(0, 3).map((genre) => (
               <span key={genre} className="rounded-full bg-secondary px-3 py-1 text-xs">

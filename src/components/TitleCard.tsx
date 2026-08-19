@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { KIND_LABEL, ratingColor, type Title } from "@/lib/catalog";
+import { kindLabel, ratingColor, type Title } from "@/lib/catalog";
 
 export function TitleCard({ title }: { title: Title }) {
   return (
@@ -24,7 +24,7 @@ export function TitleCard({ title }: { title: Title }) {
         <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background via-background/70 to-transparent p-3 pt-10">
           <p className="truncate font-display text-lg leading-tight">{title.name}</p>
           <p className="flex items-center gap-2 text-[11px] uppercase tracking-wider text-muted-foreground">
-            <span>{KIND_LABEL[title.kind] ?? title.kind}</span>
+            <span>{kindLabel(title.kind)}</span>
             {title.year && <span>{title.year}</span>}
           </p>
         </div>

@@ -36,16 +36,24 @@ export type TitleInput = {
   trailer_type: TrailerType;
 };
 
-export const STATUS_LABEL: Record<string, string> = {
+export const STATUS_LABEL = {
   watched: "Sudah ditonton",
   watching: "Sedang ditonton",
   watchlist: "Mau ditonton",
-};
+} as const;
 
-export const KIND_LABEL: Record<string, string> = {
+export const KIND_LABEL = {
   film: "Film",
   series: "Series",
-};
+} as const;
+
+export function statusLabel(status: string): string {
+  return (STATUS_LABEL as Record<string, string>)[status] ?? status;
+}
+
+export function kindLabel(kind: string): string {
+  return (KIND_LABEL as Record<string, string>)[kind] ?? kind;
+}
 
 const SIGNED_URL_TTL = 60 * 60 * 24 * 365 * 5; // 5 tahun
 
