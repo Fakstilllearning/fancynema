@@ -18,7 +18,8 @@ Gaya sinematik gelap (bukan tiruan Netflix persis): latar hitam pekat kebiruan, 
 3. **Pencarian & filter** berdasarkan judul, genre, tipe, status; urutkan berdasarkan rating, tahun, atau terbaru.
 4. **Statistik** ringkas: total tontonan, rata-rata rating, genre favorit, judul rating tertinggi.
 5. **Favorit / pin** untuk menentukan apa yang muncul di hero.
-6. **Login pemilik** — hanya kamu yang bisa menambah/mengedit; pengunjung lain hanya melihat.
+6. **Login editor** — kamu dan 1 orang lain (dua akun) bisa menambah/mengedit/menghapus; pengunjung lain hanya melihat.
+7. **Halaman kelola akses** — kamu bisa memberi (atau mencabut) hak editor ke akun kedua lewat email, tanpa ngoding.
 
 ## Data awal
 
