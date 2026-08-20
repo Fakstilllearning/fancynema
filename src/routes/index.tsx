@@ -49,6 +49,7 @@ function HomePage() {
     return okKind && okSearch;
   });
 
+  const isFiltering = search.trim() !== "" || kind !== "all";
   const favorites = filtered.filter((t) => t.is_favorite);
   const topRated = filtered.filter((t) => (t.rating ?? 0) >= 9);
   const byStatus = (status: string) => filtered.filter((t) => t.status === status);
@@ -95,11 +96,33 @@ function HomePage() {
           </div>
         )}
 
-        <Row title="Favorit" items={favorites} />
-        <Row title="Rating Tertinggi" items={topRated} />
-        <Row title={statusLabel("watching")} items={byStatus("watching")} />
-        <Row title={statusLabel("watched")} items={byStatus("watched")} />
-        <Row title={statusLabel("watchlist")} items={byStatus("watchlist")} />
+        {isFiltering ? (
+          filtered.length === 0 ? (
+            <div className="rounded-xl border border-dashed border-border p-12 text-center">
+              <p className="font-display text-2xl">Tidak ada hasil</p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Coba kata kunci atau kategori lain.
+              </p>
+            </div>
+          ) : (
+            <section>
+              <h2 className="mb-4 text-2xl">Hasil Pencarian</h2>
+              <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+                {filtered.map((item) => (
+                  <TitleCard key={item.id} title={item} />
+                ))}
+              </div>
+            </section>
+          )
+        ) : (
+          <>
+            <Row title="Favorit" items={favorites} />
+            <Row title="Rating Tertinggi" items={topRated} />
+            <Row title={statusLabel("watching")} items={byStatus("watching")} />
+            <Row title={statusLabel("watched")} items={byStatus("watched")} />
+            <Row title={statusLabel("watchlist")} items={byStatus("watchlist")} />
+          </>
+        )}
       </main>
     </div>
   );
