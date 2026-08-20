@@ -19,13 +19,14 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-6 px-4 sm:px-6">
-        <Link to="/" className="flex items-baseline gap-2">
-          <span className="font-display text-2xl leading-none tracking-widest text-primary">
-            TONTONAN
-          </span>
-          <span className="hidden text-xs uppercase tracking-[0.3em] text-muted-foreground sm:inline">
-            Katalog Pribadi
-          </span>
+        <Link to="/" className="flex items-center">
+          <img
+            src={logoAsset.url}
+            alt="Logo"
+            className="h-6 w-auto sm:h-7"
+            width={120}
+            height={32}
+          />
         </Link>
 
         <nav className="ml-auto flex items-center gap-1 text-sm">
