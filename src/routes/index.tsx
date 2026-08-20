@@ -10,14 +10,14 @@ import { fetchTitles, kindLabel, statusLabel, ratingColor, type Title } from "@/
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Tontonan — Katalog Film & Series Pribadi" },
+      { title: "Fancynema - Katalog Film & Series Pribadi" },
       {
         name: "description",
         content:
           "Koleksi film dan series Netflix favorit lengkap dengan penilaian pribadi, poster, dan video trailer.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Tontonan — Katalog Film & Series Pribadi" },
+      { property: "og:title", content: "Fancynema - Katalog Film & Series Pribadi" },
       {
         property: "og:description",
         content: "Film & series favorit dengan rating pribadi, poster, dan trailer.",
