@@ -49,6 +49,7 @@ function HomePage() {
     return okKind && okSearch;
   });
 
+  const isFiltering = search.trim() !== "" || kind !== "all";
   const favorites = filtered.filter((t) => t.is_favorite);
   const topRated = filtered.filter((t) => (t.rating ?? 0) >= 9);
   const byStatus = (status: string) => filtered.filter((t) => t.status === status);
