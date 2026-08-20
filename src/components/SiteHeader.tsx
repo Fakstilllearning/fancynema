@@ -3,6 +3,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { useQueryClient } from "@tanstack/react-query";
+import logoAsset from "@/assets/logo-wordmark.png.asset.json";
 
 export function SiteHeader() {
   const { session, canEdit, isAdmin } = useAuth();
